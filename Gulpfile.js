@@ -65,7 +65,7 @@ gulp.task('clean', function() {
   .pipe(clean({read: false}));
 });
 
-// Transpile our client scripts 
+// Transpile our client scripts
 gulp.task('babel', ['clean'], function() {
   return gulp.src('client/**/*')
     .pipe(babel({

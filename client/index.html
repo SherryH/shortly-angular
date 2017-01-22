@@ -3,13 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <title>Shortly</title>
+    <base href="/" />
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
   </head>
   <body>
     <h1>Shortly</h1>
 
     <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
-    <div ng-view></div>
+    <div ng-view>
+    <!-- input text box that takes the link -->
+    <!-- button that submits link -->
+    <!-- links will be loaded -->
+    </div>
+
+  <hr />
+
+  <pre>$location.path() = {{$location.path()}}</pre>
+  <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
+  <pre>$route.current.params = {{$route.current.params}}</pre>
+  <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
+  <pre>$routeParams = {{$routeParams}}</pre>
 
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>

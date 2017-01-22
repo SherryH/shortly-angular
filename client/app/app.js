@@ -1,11 +1,12 @@
-angular.module('shortly', [
+var shortly = angular.module('shortly', [
   'shortly.services',
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
   'ngRoute'
 ])
-.config(function ($routeProvider, $httpProvider) {
+.config(function ($routeProvider, $httpProvider, $locationProvider) {
+  //$locationProvider.hashPrefix('!');
   $routeProvider
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
@@ -15,6 +16,18 @@ angular.module('shortly', [
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
+    .when('/links', {
+      templateUrl: 'app/links/links.html',
+      controller: 'LinksController'
+    })
+    .when('/shorten', {
+      templateUrl: 'app/shorten/shorten.html',
+      controller: 'ShortenController'
+    })
+    .otherwise({redirectTo: "/links"});
+    $locationProvider.html5Mode(true);
+
+
     // Your code here
 
     // We add our $httpInterceptor into the array

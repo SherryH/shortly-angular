@@ -1,3 +1,27 @@
-<div id='container'>
+<div id='container' ng-controller='LinksController' ng-init='[]'>
+  <nav class="navigation">
+    <ul>
+      <li>
+          <a class="selected" href="#/links">Links</a>
+      </li>
+       <li>
+          <a href="#/shorten">Shorten</a>
+      </li>
+    </ul>
+  </nav>
   <!-- Your html here -->
+  <!-- link item : url, title, shortened link -->
+  <img src='/redirect_icon.png'/>
+  <div class='info' ng-repeat='link in Links'>
+      <div class='visits'><span class='count'>{{visits}}</span>Visits</div>
+      <div class='title'>{{title}}</div>
+      <div class='original'>{{url}}</div>
+      <a  ng-click='' href='{{baseUrl}}/{{code}}'>{{baseUrl}}/{{code}}</a>}
+  </div>
+
 </div>
+
+
+
+
+<!-- //need to have ng-app="shortly.links" somewhere? -->
