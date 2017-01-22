@@ -1,6 +1,6 @@
-angular.module('shortly.links', [])
+angular.module('shortly.links', ['shortly.services'])
 
-.controller('LinksController', function ($scope, $location, Links) {
+.controller('LinksController', function ($scope, $location, Links, Auth) {
   //count the visits - event handler to count and save
   //get from db to display
   $scope.link = {};
@@ -10,7 +10,7 @@ angular.module('shortly.links', [])
   // $scope.title = 'Star Wars';
   // $scope.url = 'http://www.google.com';
 
-  $scope.getAll = (function() {
+  $scope.getAll = function() {
     Links.getAll()
       .then(function (data) {
         console.log('DATA SHOULD BE LINKS', data);
@@ -24,12 +24,18 @@ angular.module('shortly.links', [])
       .catch(function (error) {
         console.error(error);
       });
-  })();
+  };
+
+  $scope.getAll();
 
   $scope.addOne = function() {
     Links.addOne($scope.link, function(response){
       console.log('RESPONSE FROM ADD LINK', response);
     });
+  };
+
+  $scope.logout = function() {
+    Auth.signout();
   };
 
 });

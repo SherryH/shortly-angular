@@ -5,6 +5,7 @@ angular.module('shortly.shorten', [])
 
   $scope.addLink = function() {
     $scope.loading = true;
+    console.log('SHORTEN THIS LINK', $scope.link);
     Links.addOne($scope.link, function(err, res){
       if(err) {
         console.log('ERROR', err);

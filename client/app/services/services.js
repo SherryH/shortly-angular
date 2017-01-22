@@ -6,7 +6,6 @@ angular.module('shortly.services', [])
     return $http({
       method: 'GET',
       url: '/api/links',
-      data: []
     }).then(function successCallback(response) {
         // this callback will be called asynchronously
         // when the response is available

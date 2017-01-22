@@ -1,5 +1,6 @@
 <div id='container' ng-controller='LinksController' ng-init='[]'>
-  <nav class="navigation">
+
+    <nav class="navigation">
     <ul>
       <li>
           <a class="selected" href="#/links">Links</a>
@@ -8,16 +9,27 @@
           <a href="#/shorten">Shorten</a>
       </li>
     </ul>
+
   </nav>
+  <form class="search">
+    <input ng-model="query" type="text"
+      placeholder="Search" autofocus>
+  </form>
   <!-- Your html here -->
   <!-- link item : url, title, shortened link -->
-  <img src='/redirect_icon.png'/>
-  <div class='info' ng-repeat='link in Links'>
-      <div class='visits'><span class='count'>{{visits}}</span>Visits</div>
-      <div class='title'>{{title}}</div>
-      <div class='original'>{{url}}</div>
-      <a  ng-click='' href='{{baseUrl}}/{{code}}'>{{baseUrl}}/{{code}}</a>}
+  <div class='links'>
+    <div class="link" ng-repeat="link in data.links | filter: query |orderBy:'-visits'" >
+      <img src='/assets/redirect_icon.png'/>
+      <div class='info'>
+          <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+          <div class='title'>{{link.title}}</div>
+          <div class='original'>{{link.url}}</div>
+          <a  ng-click='' href='{{link.baseUrl}}/{{link.code}}'>{{link.baseUrl}}/{{link.code}}</a>
+      </div>
+    </div>
   </div>
+
+  <button ng-click='logout()'>Logout</button>
 
 </div>
 

@@ -25,7 +25,7 @@ var shortly = angular.module('shortly', [
       controller: 'ShortenController'
     })
     .otherwise({redirectTo: "/links"});
-    $locationProvider.html5Mode(true);
+  // $locationProvider.html5Mode(true);
 
 
     // Your code here
